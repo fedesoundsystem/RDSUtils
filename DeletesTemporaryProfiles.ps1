@@ -3,7 +3,7 @@
 ################################################################################################################################################################
 $FileServer = "FileServer.domain.tld"
 
-$ConnectionBrokers ="ConnectionBroker1.domain.tld","ConnectionBroker2.domain.tld","ConnectionBroker3.domain.tld"
+$ConnectionBrokers = "ConnectionBroker1.domain.tld","ConnectionBroker2.domain.tld","ConnectionBroker3.domain.tld"
 foreach ($ConnectionBroker in $ConnectionBrokers)
     {
 #Lists collections with UPD set up.
@@ -182,7 +182,6 @@ foreach ($ConnectionBroker in $ConnectionBrokers)
 
     $RDUsers = $LoggedOnUsers | foreach {"\\$($_.server)\c$\Users\$($_.user)"}
 
-    $FoldersToDelete = @()
     foreach ($FolderInSH in $FoldersInSH)
         {
         if (($FolderInSH -notin $RDUsers) -and ($FolderInSH -notlike "*public*"))
